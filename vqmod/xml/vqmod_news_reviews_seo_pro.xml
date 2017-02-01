@@ -1,0 +1,80 @@
+<modification>
+        <id>Support SEO Pro ocStore 1.5.4.1</id>
+        <version>1.5-9.1</version>
+        <vqmver>2.1.7</vqmver>
+        <author>Konstantin V. Sapronov aka costas</author>
+        <file name="catalog/controller/common/seo_pro.php">
+		<operation error="skip">
+                        <search position="before"><![CDATA[
+                        list($last_part) = explode('.', array_pop($parts));
+                        ]]></search>
+                        <add><![CDATA[
+			if (preg_match('#^(news/)(.*)#', $route, $matches)) {
+				$parts = explode('/', trim(utf8_strtolower($matches[2]), '/'));
+				if($parts[0] == '' AND count($parts) == 1) {
+					$parts = explode('/', trim(utf8_strtolower($route), '/'));
+				}
+			}
+                        ]]></add>
+                </operation>
+                <operation error="skip">
+                        <search position="before" offset="1"><![CDATA[$this->request->get['route'] = 'error/not_found';]]></search>
+                        <add><![CDATA[
+                        } elseif (isset($parts[0]) AND $parts[0] == 'news') {
+                    		$this->request->get['route'] = 'information/news';
+                        ]]></add>
+                </operation>
+                <operation error="skip">
+                        <search position="after"><![CDATA[
+                        $this->request->get['route'] = 'information/information';
+                        ]]></search>
+                        <add><![CDATA[
+			}elseif( isset($this->request->get['news_id']) ) {
+				$this->request->get['route'] = 'information/news';
+                        ]]></add>
+                </operation>
+                <operation error="skip">
+                        <search position="before"><![CDATA[
+                        case 'product/product':
+                        ]]></search>
+                        <add><![CDATA[
+                        case 'information/news':
+				if (!isset($data['news_id'])) {
+					$seo_url .= '/news';
+				}
+				break;
+                        ]]></add>
+                </operation>
+        	<operation error="skip">
+                        <search position="before"><![CDATA[
+                        case 'product_id':
+                        ]]></search>
+                        <add><![CDATA[
+                        case 'news_id':
+				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
+				if ($query->num_rows) {
+					$seo_url .= '/news/' . rawurlencode($query->row['keyword']);
+					unset($data[$key]);
+					$postfix = 1;
+				}
+				break;
+                        ]]></add>
+                </operation>
+                <operation error="skip">
+                        <search position="before"><![CDATA[
+                        case 'product/product':
+                        ]]></search>
+                        <add><![CDATA[
+                        case 'information/news':
+				if (!isset($data['news_id'])) {
+					$seo_url .= '/news';
+				}
+				break;
+                        ]]></add>
+                </operation>
+                <operation error="skip">
+                        <search position="replace"><![CDATA[$get = array('path',]]></search>
+                        <add><![CDATA[$get = array('path', 'news_id',]]></add>
+                </operation>
+        </file>
+</modification>

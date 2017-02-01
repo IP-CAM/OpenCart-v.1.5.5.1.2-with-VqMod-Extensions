@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Resize image manager(RIM)</id>
+    <version>1.1</version>
+    <vqmver>2.4.1</vqmver>
+    <author>Mi3girb</author>
+    <file path="admin/view/template/common/" name="footer.tpl,filemanager.tpl">
+        <operation error="log">
+            <search position="before"><![CDATA[
+                </body>
+            ]]></search>
+            <add><![CDATA[
+                <!-- start - rim extension -->
+                <script type="text/javascript" src="view/javascript/resize-image-manager.js"></script>
+                <!-- end - rim extension -->
+            ]]></add>
+        </operation>
+    </file>
+    <file name="admin/view/template/common/filemanager.tpl">
+        <operation error="log">
+            <search position="before"><![CDATA[
+                </body>
+            ]]></search>
+            <add><![CDATA[
+                <!-- start - rim extension -->
+                <script type="text/javascript"><!--
+                     RIM.imageManagerSetBoxColumnsSize();
+                //--></script>
+                <!-- end - rim extension -->
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/"
+          name="catalog/category_form.tpl,catalog/product_form.tpl,catalog/manufacturer_form.tpl,catalog/news_form.tpl,catalog/option_form.tpl,design/banner_form.tpl,sale/voucher_theme_form.tpl,setting/setting.tpl,setting/store_form.tpl">
+        <operation info="add script with setting main box size" error="log">
+            <search position="after" offset="1"><![CDATA[
+                modal: false
+            ]]></search>
+            <add><![CDATA[
+                <!-- start - rim extension -->
+                RIM.imageManagerSetMainBoxSize();
+                <!-- end - rim extension -->
+            ]]></add>
+        </operation>
+    </file>
+</modification>

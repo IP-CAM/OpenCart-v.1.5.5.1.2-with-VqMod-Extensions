@@ -1,0 +1,160 @@
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    padding: 0px;
+    
+}
+.jcarousel-skin-tango .jcarousel-clip {
+    overflow: hidden;
+    
+}
+
+.jcarousel-skin-tango .jcarousel-clip-horizontal {
+    margin:0 0px;
+    }
+
+.jcarousel-skin-tango .jcarousel-item {
+    width: 181px;
+    height: auto;
+    position:relative;
+    
+}
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+	margin-right: 20px;
+}
+.jcarousel-skin-tango .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+
+/**
+ *  Horizontal Buttons
+ */
+
+.jcarousel-skin-tango .jcarousel-next-horizontal {
+    position: absolute;
+    top: -49px;
+    right: 0px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background: transparent url(../image/next-horizontal.png) no-repeat 0 0;
+    }
+
+
+.jcarousel-skin-tango .jcarousel-next-horizontal:hover {
+    background-position:0 bottom ;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal:active {
+    background-position:0 bottom ;
+    
+}
+.box.featured .jcarousel-next-disabled,.box.featured  .jcarousel-prev-disabled {opacity:0.5; cursor:default;background-position:0 0 !important}
+.jcarousel-skin-tango .jcarousel-prev-horizontal {
+    position: absolute;
+    top: -49px;
+    right:36px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background: transparent url(../image/prev-horizontal.png) no-repeat 0 0;
+}
+.jcarousel-skin-tango .jcarousel-prev-horizontal:hover {
+    background-position:0 bottom;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-horizontal:active {
+    background-position:0 bottom ;
+}
+
+.zoom-top img {
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+.left .zoom-top:first-child {
+    margin-top:0px;
+    position:relative;
+    z-index:1000;
+}
+.zoom-top:hover {
+    -moz-transform:scale(1.05);/*When hover on images image size will increased*/
+    -webkit-transform:scale(1.05);/*When hover on images image size will increased*/
+    -webkit-transform:scale(1.05);/*When hover on images image size will increased*/
+}
+.zoom-top {
+    width:30px!important;
+    height:30px!important;
+    background: url('../image/zoom.png') right 0px no-repeat;
+    overflow:hidden;
+    margin-bottom:-30px;
+    
+}
+#wrap {
+    z-index:10!important;
+}
+.product-info .image {
+	padding: 0px;
+	
+}
+.product-info .image-additional a {
+	float: left;
+	display: block;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+.image-caroucel .jcarousel-prev.jcarousel-prev-disabled{
+background: url(../image/jcontrol.png) 5% 20% no-repeat;
+cursor: default !important;
+}
+.image-caroucel .jcarousel-next.jcarousel-next-disabled {
+background: url(../image/jcontrol.png) 90% 20% no-repeat;
+
+cursor: default !important;
+}
+.image-caroucel .jcarousel-prev {
+position: absolute;
+width: 15px;
+height: 30px;
+left: 0;
+top: 20%;
+background: url(../image/jcontrol.png) 38% 20% no-repeat;
+
+}
+.image-caroucel .jcarousel-next {
+position: absolute;
+width: 15px;
+height: 30px;
+right: 0;
+top: 20%;
+background: url(../image/jcontrol.png) 60% 20% no-repeat;
+
+}
+.product-info .image-additional {
+	margin-left: 0px;
+	 overflow: hidden;
+}
+.product-info .image-additional ul {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+.product-info .image-additional ul li {
+	list-style:none;
+	float:left;
+}
+.product-info .wrapper .left {
+float: left;
+margin-right: 0px !important;
+padding: 6px 6px 2px 6px;
+margin-left: 1px;
+background: #f7f7f7;
+position: relative;
+z-index: 1;
+}
+.product-info .indent-bot {
+margin-bottom: 20px;
+}
+.wrapper {
+width: 100%;
+overflow: hidden;
+}

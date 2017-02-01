@@ -1,0 +1,187 @@
+.jcarousel-skin-opencart .jcarousel-container {
+	background: #FFF;
+	margin-bottom: 20px;
+}
+.jcarousel-skin-opencart .jcarousel-direction-rtl {
+	direction: rtl;
+}
+
+.jcarousel-skin-opencart .jcarousel-clip {
+	overflow: hidden;
+	width: 100%;
+}
+.jcarousel-skin-opencart .jcarousel-item {
+	text-align: center;
+}
+.jcarousel-skin-opencart .jcarousel-item-placeholder {
+	background: #fff;
+	color: #000;
+}
+
+.jcarousel-skin-opencart .jcarousel-container-vertical {
+    width: auto;
+   padding: 40px 0px;
+}
+.jcarousel-skin-opencart .jcarousel-clip-vertical {
+    width:  auto;
+}
+.jcarousel-skin-opencart .jcarousel-item-vertical {
+    margin-bottom: 10px;
+}
+.jcarousel-skin-opencart .jcarousel-next-vertical {
+    position: absolute;
+    bottom: 5px;
+    left: 73px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background:url("../image/down.png") no-repeat scroll 0 0 transparent
+}
+
+.jcarousel-skin-opencart .jcarousel-next-vertical:hover,
+.jcarousel-skin-opencart .jcarousel-next-vertical:focus {
+
+}
+
+.jcarousel-skin-opencart .jcarousel-next-vertical:active {
+}
+
+.jcarousel-skin-opencart .jcarousel-next-disabled-vertical,
+.jcarousel-skin-opencart .jcarousel-next-disabled-vertical:hover,
+.jcarousel-skin-opencart .jcarousel-next-disabled-vertical:focus,
+.jcarousel-skin-opencart .jcarousel-next-disabled-vertical:active {
+ 
+}
+
+.jcarousel-skin-opencart .jcarousel-prev-vertical {
+    position: absolute;
+    top: 5px;
+    left: 73px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background:url("../image/up.png") no-repeat scroll 0 0 transparent
+}
+
+.jcarousel-skin-opencart .jcarousel-prev-vertical:hover,
+.jcarousel-skin-opencart .jcarousel-prev-vertical:focus {
+
+}
+
+.jcarousel-skin-opencart .jcarousel-prev-vertical:active {
+
+}
+
+.jcarousel-skin-opencart .jcarousel-prev-disabled-vertical,
+.jcarousel-skin-opencart .jcarousel-prev-disabled-vertical:hover,
+.jcarousel-skin-opencart .jcarousel-prev-disabled-vertical:focus,
+.jcarousel-skin-opencart .jcarousel-prev-disabled-vertical:active {
+
+}
+
+.jcarousel-skin-opencarthl .jcarousel-container {
+	background: none;
+	margin-bottom: 20px;
+}
+.jcarousel-skin-opencarthl .jcarousel-direction-rtl {
+	direction: rtl;
+}
+
+.jcarousel-skin-opencarthl .jcarousel-clip {
+	overflow: hidden;
+	width: 100%;
+}
+.jcarousel-skin-opencarthl .jcarousel-item {
+	text-align: center;
+}
+.jcarousel-skin-opencarthl .jcarousel-item-placeholder {
+	background: #fff;
+	color: #000;
+}
+
+.jcarousel-skin-opencarthl .jcarousel-container-vertical {
+    width: auto;
+    padding: 40px 0px;
+}
+.jcarousel-skin-opencarthl .jcarousel-clip-vertical {
+    width:  auto;
+}
+.jcarousel-skin-opencarthl .jcarousel-item-vertical {
+    margin-bottom: 10px;
+}
+.jcarousel-skin-opencarthl .jcarousel-next-vertical {
+    position: absolute;
+    bottom: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background:url("../image/down.png") no-repeat scroll 0 0 transparent
+}
+
+.jcarousel-skin-opencarthl .jcarousel-next-vertical:hover,
+.jcarousel-skin-opencarthl .jcarousel-next-vertical:focus {
+
+}
+
+.jcarousel-skin-opencarthl .jcarousel-next-vertical:active {
+}
+
+.jcarousel-skin-opencarthl .jcarousel-next-disabled-vertical,
+.jcarousel-skin-opencarthl .jcarousel-next-disabled-vertical:hover,
+.jcarousel-skin-opencarthl .jcarousel-next-disabled-vertical:focus,
+.jcarousel-skin-opencarthl .jcarousel-next-disabled-vertical:active {
+ 
+}
+
+.jcarousel-skin-opencarthl .jcarousel-prev-vertical {
+    position: absolute;
+    top: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background:url("../image/up.png") no-repeat scroll 0 0 transparent
+}
+
+.jcarousel-skin-opencarthl .jcarousel-prev-vertical:hover,
+.jcarousel-skin-opencarthl .jcarousel-prev-vertical:focus {
+
+}
+
+.jcarousel-skin-opencarthl .jcarousel-prev-vertical:active {
+
+}
+
+.jcarousel-skin-opencarthl .jcarousel-prev-disabled-vertical,
+.jcarousel-skin-opencarthl .jcarousel-prev-disabled-vertical:hover,
+.jcarousel-skin-opencarthl .jcarousel-prev-disabled-vertical:focus,
+.jcarousel-skin-opencarthl .jcarousel-prev-disabled-vertical:active {
+
+}
+
+.box_column_filter ul{overflow: hidden;padding: 0; text-align: center}
+.box_column_filter ul li{display:inline-block; list-style: none;margin-bottom: 20px;}
+.box_column_filter .image {
+float: left;
+margin-right: 5px;
+width: 75px;
+}	
+.box_column_filter .name {
+	text-align:left;
+	margin-bottom:2px;
+}
+.box_column_filter .price-old {
+	color:#F00;
+	text-decoration:line-through;
+}
+.box_column_filter .price-new {
+	color:000;
+	font-weight:bold;
+}
+.box_column_filter .detail {
+float: left;
+width: 75px;
+margin-left: 5px;
+text-align: left;
+}

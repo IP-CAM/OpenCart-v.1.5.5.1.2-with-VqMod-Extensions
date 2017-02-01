@@ -1,0 +1,79 @@
+<!doctype html>
+
+<head>
+
+   <!-- player skin -->
+   <link rel="stylesheet" href="skin/functional.css">
+
+   <!-- site specific styling -->
+   <style>
+   body { font: 12px "Myriad Pro", "Lucida Grande", sans-serif; text-align: center; padding-top: 5%; }
+   .flowplayer { width: 80%; }
+   </style>
+
+   <!-- for video tag based installs flowplayer depends on jQuery 1.7.2+ -->
+   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+   <!-- include flowplayer -->
+   <script src="flowplayer.min.js"></script>
+
+</head>
+
+<body>
+
+   <!-- the player -->
+   <div class="flowplayer" data-swf="flowplayer.swf" data-ratio="0.4167">
+      <video>
+         <source type="video/mp4" src="test_03.mp4">
+      </video>
+   </div>
+
+</body>
+
+
+<h2>Simple flowplayer example</h2>
+<div id="example"></div>
+
+<script language="javascript">
+   flashembed("example", 
+      {
+       src:    '/system/flowplayer/FlowPlayerLight.swf',
+       width:  468, 
+       height: 350,       
+      },
+      {
+        config: {
+            videoFile: '/download/Interesing.MPEG', 
+            autoPlay: false, 
+            autoBuffering: false,
+            loop: false
+       },      
+      } 
+   );
+</script>
+
+//------------------------------------------
+<style type="text/css">
+/* site specific styling */
+   body {
+      font: 12px "Myriad Pro", "Lucida Grande", "Helvetica Neue", sans-serif;
+      text-align: center;
+      padding-top: 1%;
+      color: #999;
+      background-color: #333333;
+   }
+
+   /* custom player skin */
+   .flowplayer { width: 50%; max-width: 800px; }
+   .flowplayer .fp-controls { background-color: rgba(17, 17, 17, 1)}
+   .flowplayer .fp-timeline { background-color: rgba(204, 204, 204, 1)}
+   .flowplayer .fp-progress { background-color: rgba(0, 167, 200, 1)}
+   .flowplayer .fp-buffer { background-color: rgba(249, 249, 249, 1)}
+</style>
+<p>
+	Second</p>
+<div class="flowplayer functional" data-ratio="0.4167">
+	<video flashstopped="false">
+		<source src="/download/test_03.mp4" type="video/mp4"> </source>
+    </video>
+</div>

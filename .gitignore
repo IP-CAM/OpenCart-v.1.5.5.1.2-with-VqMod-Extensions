@@ -1,0 +1,11 @@
+#/#Temp/
+#/.idea/
+#/download/
+#/image/
+#/catalog/
+#/system/
+!resize-image-manager.*
+/#Temp/
+/.idea/
+/download/
+/image/
