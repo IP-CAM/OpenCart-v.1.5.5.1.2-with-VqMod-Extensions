@@ -1,21 +1,24 @@
 /**
  * resize-image-manager, JavaScript Resize Image Manager
  * change size of Image Manager
- * @version 1.1
+ * @version 1.2
  * @author  Mi3girb
  * @created 2017-01-30
+ * @updated 2017-02-01
  */
 
 
 ;RIM = {
     name: 'ResizeImageManager',
+    imageResize: false,                    // true - image resize, default false
     options: {
-        heightBox: 550,                     // default 400
-        widthBox: "97%",                    // default 800
+        heightBox: 550,                    // image manager height, default 400px
+        widthBox: "97%",                   // image manager wight, default 800px
         leftBox: "1.5%",
-        differenceHeightColumn: 80,        // height column default 320
-        widthLeftColumn: "12%",            // default 20%
-        widthRightColumn: "87%"            // default 78%
+        differenceHeightColumn: 80,        // height column default 320px
+        widthLeftColumn: "12%",            // left column wight, default 20%
+        widthRightColumn: "87%",           // right column wight, default 78%
+        heightImage: 50                    // image height, default 100x100px
     },
     imageManagerSetMainBoxSize: function () {
         $('.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-draggable')
@@ -39,11 +42,14 @@
         });
 
         $('#column-right a').css({
-            padding: 0,
-            // height: "80px",
-            // wight:"80px"
+            padding: 0
         });
-
+    },
+    imageManagerSetImageSize: function () {
+        if (this.imageResize) {
+            $('#column-right img').css({
+                height: this.options.heightImage
+            });
+        }
     }
-
 };
