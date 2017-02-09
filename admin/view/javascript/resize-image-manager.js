@@ -44,13 +44,15 @@
             width: this.options.widthRightColumn,
             height: columnHeight
         });
-
-        $('#column-right a').css({
-            padding: 0
-        });
     },
     imageManagerSetImageSize: function () {
+            $('#column-right a').css({
+                padding: 0,
+                margin: 1
+            });
+
         if (this.imageResize) {
+                        
             $('#column-right img').css({
                 height: this.options.heightImage
             });
