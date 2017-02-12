@@ -102,9 +102,9 @@ class ControllerCommonFileManager extends Controller {
             $directory = DIR_IMAGE . 'data/';
         }
 
-        // Allowed file extension types
+        // Allowed file extensions
         $allowed = array();
-        $fileTypes = explode("\n", $this->config->get('config_file_extension_allowed'));
+        $fileTypes = explode(PHP_EOL, $this->config->get('config_file_extension_allowed'));
         foreach ($fileTypes as $fileType) {
             array_push($allowed, '.' . trim($fileType));
         }
@@ -122,16 +122,14 @@ class ControllerCommonFileManager extends Controller {
 
                 if (in_array(strtolower($ext), $allowed)) {
                     $size = filesize($file);
-
-                    $i = 0;
-
                     $suffix = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
-
+                    $i = 0;
                     while (($size / 1024) > 1) {
                         $size = $size / 1024;
                         $i++;
                     }
 
+                    // Add file thumb
                     if (preg_match("/^video/i", mime_content_type($file))) {
                         $_file = utf8_substr(DIR_IMAGE . 'video.png', utf8_strlen(DIR_IMAGE));
                         $thumb = $this->model_tool_image->resize($_file, 100, 100);
@@ -436,62 +434,42 @@ class ControllerCommonFileManager extends Controller {
                     $json['error'] = $this->language->get('error_directory');
                 }
 
-                // Allowed file mime types
+//---------------------------
+                // Allowed file MIME-types
                 $allowed = array();
 
-                $filetypes = explode("\n", $this->config->get('config_file_mime_allowed'));
+                $filetypes = explode(PHP_EOL, $this->config->get('config_file_mime_allowed'));
 
                 foreach ($filetypes as $filetype) {
                     $allowed[] = trim($filetype);
                 }
 
-                /*
-                                $allowed = array(
-                                    'image/jpeg',
-                                    'image/pjpeg',
-                                    'image/png',
-                                    'image/x-png',
-                                    'image/gif',
-                                    'application/x-shockwave-flash'
-                                );
-                */
-
                 if (!in_array($this->request->files['image']['type'], $allowed)) {
                     $json['error'] = $this->language->get('error_file_type');
                 }
 
-                if ($this->request->files['image']['size'] > $this->ocstore->return_bytes(ini_get('upload_max_filesize'))) {
-                    $json['error'] = $this->language->get('error_file_size');
+                if ($this->request->files['image']['size'] > $this->ocstore->getUploadMaxFileSizeBytes()) {
+                    $json['error'] = sprintf($this->language->get('error_file_size'), ini_get('upload_max_filesize'));
                 }
 
-                // Allowed file extension types
+                // Allowed file extension type
                 $allowed = array();
 
-                $filetypes = explode("\n", $this->config->get('config_file_extension_allowed'));
+                $filetypes = explode(PHP_EOL, $this->config->get('config_file_extension_allowed'));
 
                 foreach ($filetypes as $filetype) {
                     $allowed[] = '.' . trim($filetype);
                 }
 
-                /*
-                                $allowed = array(
-                                    '.jpg',
-                                    '.jpeg',
-                                    '.gif',
-                                    '.png',
-                                    '.flv'
-                                );
-                */
-
                 if (!in_array(strtolower(strrchr($filename, '.')), $allowed)) {
                     $json['error'] = $this->language->get('error_file_type');
                 }
-
+//------------------------
                 if ($this->request->files['image']['error'] != UPLOAD_ERR_OK) {
                     $json['error'] = 'error_upload_' . $this->request->files['image']['error'];
                 }
             } else {
-                $json['error'] = $this->language->get('error_file');
+                $json['error'] = sprintf($this->language->get('error_file'), ini_get('upload_max_filesize'));
             }
         } else {
             $json['error'] = $this->language->get('error_directory');
@@ -511,5 +489,4 @@ class ControllerCommonFileManager extends Controller {
 
         $this->response->setOutput(json_encode($json));
     }
-
 }
