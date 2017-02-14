@@ -122,8 +122,21 @@ class ControllerCommonFileManager extends Controller {
 
                 if (in_array(strtolower($ext), $allowed)) {
                     $size = filesize($file);
-                    $suffix = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+
                     $i = 0;
+
+                    $suffix = array(
+                        'B',
+                        'KB',
+                        'MB',
+                        'GB',
+                        'TB',
+                        'PB',
+                        'EB',
+                        'ZB',
+                        'YB'
+                    );
+
                     while (($size / 1024) > 1) {
                         $size = $size / 1024;
                         $i++;
@@ -434,7 +447,6 @@ class ControllerCommonFileManager extends Controller {
                     $json['error'] = $this->language->get('error_directory');
                 }
 
-//---------------------------
                 // Allowed file MIME-types
                 $allowed = array();
 
@@ -449,7 +461,7 @@ class ControllerCommonFileManager extends Controller {
                 }
 
                 if ($this->request->files['image']['size'] > $this->ocstore->getUploadMaxFileSizeBytes()) {
-                    $json['error'] = sprintf($this->language->get('error_file_size'), ini_get('upload_max_filesize'));
+                    $json['error'] = sprintf($this->language->get('error_file_size'), $this->ocstore->getUploadMaxFileSizeBytes());
                 }
 
                 // Allowed file extension type
@@ -464,12 +476,12 @@ class ControllerCommonFileManager extends Controller {
                 if (!in_array(strtolower(strrchr($filename, '.')), $allowed)) {
                     $json['error'] = $this->language->get('error_file_type');
                 }
-//------------------------
+
                 if ($this->request->files['image']['error'] != UPLOAD_ERR_OK) {
                     $json['error'] = 'error_upload_' . $this->request->files['image']['error'];
                 }
             } else {
-                $json['error'] = sprintf($this->language->get('error_file'), ini_get('upload_max_filesize'));
+                $json['error'] = sprintf($this->language->get('error_file'), $this->ocstore->getUploadMaxFileSizeBytes());
             }
         } else {
             $json['error'] = $this->language->get('error_directory');
