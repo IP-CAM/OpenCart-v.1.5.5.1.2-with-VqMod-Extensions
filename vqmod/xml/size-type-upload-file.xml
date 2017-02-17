@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Size and type uploading files</id>
+    <version>2.0</version>
+    <vqmver>2.x</vqmver>
+    <author>MiZGirb</author>
+    <file name="admin/controller/common/filemanager.php">
+        <operation error="log" info="Allowed file extensions">
+            <search position="replace" index="1" offset="5"><![CDATA[
+                $allowed = array(
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension
+                // Allowed file extensions
+                $allowed = array();
+                $fileTypes = explode(PHP_EOL, $this->config->get('config_file_extension_allowed'));
+                foreach ($fileTypes as $fileType) {
+                    array_push($allowed, '.' . trim($fileType));
+                }
+                // end - size-type-upload-file extension
+            ]]></add>
+        </operation>
+        <operation error="log" info="Add file thumb">
+            <search position="replace" index="1" offset="5"><![CDATA[
+                $json[] = array(
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension -->
+                // Add file thumb
+                if (preg_match("/^video/i", mime_content_type($file))) {
+                    $_file = utf8_substr(DIR_IMAGE . 'video.png', utf8_strlen(DIR_IMAGE));
+                    $thumb = $this->model_tool_image->resize($_file, 100, 100);
+                } else {
+                    $thumb = $this->model_tool_image->resize(utf8_substr($file, utf8_strlen(DIR_IMAGE)), 100, 100);
+                }
+
+                $json[] = array(
+                    'filename' => basename($file),
+                    'file'     => utf8_substr($file, utf8_strlen(DIR_IMAGE . 'data/')),
+                    'thumb'    => $thumb,
+                    'size'     => round(utf8_substr($size, 0, utf8_strpos($size, '.') + 4), 2) . $suffix[$i]
+                );
+                // end - size-type-upload-file extension -->
+            ]]></add>
+        </operation>
+        <operation error="log" info="Allowed file MIME-types and extensions">
+            <search position="replace" offset="28"><![CDATA[
+				if ($this->request->files['image']['size'] > 300000) {
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension
+                // Allowed file MIME-types
+                $allowed = array();
+
+                $filetypes = explode(PHP_EOL, $this->config->get('config_file_mime_allowed'));
+
+                foreach ($filetypes as $filetype) {
+                    $allowed[] = trim($filetype);
+                }
+
+                if (!in_array($this->request->files['image']['type'], $allowed)) {
+                    $json['error'] = $this->language->get('error_file_type');
+                }
+
+                if ($this->request->files['image']['size'] > $this->ocstore->getUploadMaxFileSizeBytes()) {
+                    $json['error'] = sprintf($this->language->get('error_file_size'), $this->ocstore->getUploadMaxFileSize());
+                }
+
+                // Allowed file extension type
+                $allowed = array();
+
+                $filetypes = explode(PHP_EOL, $this->config->get('config_file_extension_allowed'));
+
+                foreach ($filetypes as $filetype) {
+                    $allowed[] = '.' . trim($filetype);
+                }
+
+                if (!in_array(strtolower(strrchr($filename, '.')), $allowed)) {
+                    $json['error'] = $this->language->get('error_file_type');
+                }
+                // end - size-type-upload-file extension
+            ]]></add>
+        </operation>
+        <operation error="log" info="Error massage">
+            <search position="replace" offset="0"><![CDATA[
+                $json['error'] = $this->language->get('error_file');
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension
+                $json['error'] = sprintf($this->language->get('error_file'), $this->ocstore->getUploadMaxFileSize());
+                // end - size-type-upload-file extension
+            ]]></add>
+        </operation>
+    </file>
+    <file name="system/library/ocstore.php">
+        <operation error="log" info="Add functions to ocStore">
+            <search position="before"><![CDATA[
+                public function validate
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension
+                public function return_bytes($val) {
+                    $val = trim($val);
+                    switch (strtolower(substr($val, -1))) {
+                        case 'm':
+                            $val = (int)substr($val, 0, -1) * 1048576;
+                            break;
+                        case 'k':
+                            $val = (int)substr($val, 0, -1) * 1024;
+                            break;
+                        case 'g':
+                            $val = (int)substr($val, 0, -1) * 1073741824;
+                            break;
+                        case 'b':
+                            switch (strtolower(substr($val, -2, 1))) {
+                                case 'm':
+                                    $val = (int)substr($val, 0, -2) * 1048576;
+                                    break;
+                                case 'k':
+                                    $val = (int)substr($val, 0, -2) * 1024;
+                                    break;
+                                case 'g':
+                                    $val = (int)substr($val, 0, -2) * 1073741824;
+                                    break;
+                                default :
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    return $val;
+                }
+
+                public function getUploadMaxFileSize() {
+                    $uploadMaxFileSize = ini_get('upload_max_filesize');
+
+                    return empty($uploadMaxFileSize) ? 300000 : $uploadMaxFileSize;
+                }
+
+                public function getUploadMaxFileSizeBytes() {
+                    return $this->return_bytes($this->getUploadMaxFileSize());
+                }
+                // end - size-type-upload-file extension
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/russian/common/" name="filemanager.php">
+        <operation info="Replace error massage" error="log">
+            <search position="replace"><![CDATA[
+                 $_['error_file']       = 'Выберите файл!';
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension
+                $_['error_file']       = 'Выберите файл!' . PHP_EOL . PHP_EOL . 'Или выбранный файл превышает %s!';
+                // end - size-type-upload-file extension
+            ]]></add>
+        </operation>
+        <operation info="Replace error massage" error="log">
+            <search position="replace"><![CDATA[
+                $_['error_file_size']  = 'Файл не должен быть больше 300kb и 1000px по высоте или ширине!';
+            ]]></search>
+            <add><![CDATA[
+                // start - size-type-upload-file extension
+                $_['error_file_size']  = 'Файл не должен быть больше $s и 1000px по высоте или ширине!';
+                // end - size-type-upload-file extension
+            ]]></add>
+        </operation>
+    </file>
+</modification>
