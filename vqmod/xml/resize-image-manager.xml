@@ -2,7 +2,7 @@
 <modification>
     <id>Resize image manager(RIM)</id>
     <version>1.2</version>
-    <vqmver>2.4.1</vqmver>
+    <vqmver>2.3.0+</vqmver>
     <author>Mi3girb</author>
     <file path="admin/view/template/common/" name="footer.tpl,filemanager.tpl">
         <operation error="log">
@@ -41,7 +41,7 @@
         </operation>
     </file>
     <file path="admin/view/template/"
-          name="catalog/category_form.tpl,catalog/product_form.tpl,catalog/manufacturer_form.tpl,catalog/news_form.tpl,catalog/option_form.tpl,design/banner_form.tpl,sale/voucher_theme_form.tpl,setting/setting.tpl,setting/store_form.tpl">
+          name="catalog/category_form.tpl,catalog/product_form.tpl,catalog/manufacturer_form.tpl,catalog/option_form.tpl,design/banner_form.tpl,sale/voucher_theme_form.tpl,setting/setting.tpl,setting/store_form.tpl,catalog/news_form.tpl">
         <operation info="add script with setting main box size" error="log">
             <search position="after" offset="1"><![CDATA[
                 modal: false
