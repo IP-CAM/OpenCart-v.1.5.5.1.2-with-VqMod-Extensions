@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Video on the page</id>
+    <version>1.0</version>
+    <vqmver>2.x</vqmver>
+    <author>MiZGirb</author>
+    <file name="catalog/view/theme/*/template/common/header1.tpl">
+        <operation error="log" info="Include flowplayer.php">
+            <search position="before"><![CDATA[
+                </head>
+            ]]></search>
+            <add><![CDATA[
+                <!-- start - video on page -->
+                <!-- FlowPlayer -->
+                <?=require_once('catalog/view/javascript/flowplayer/flowplayer.php');?>
+                <!-- end - video on page -->
+            ]]></add>
+        </operation>
+    </file>
+    <file name="catalog/view/theme/*/template/common/footer.tpl">
+        <operation error="log" info="Include flowplayer">
+            <search position="before"><![CDATA[
+                </body>
+            ]]></search>
+            <add><![CDATA[
+                <!-- start - video on page -->
+
+                <!-- Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the navigator.userAgent string -->
+                <script src="/catalog/view/javascript/flowplayer/detect.js"></script>
+
+                <!-- add player and his appearance -->
+                <script src="/catalog/view/javascript/flowplayer/flowplayer.js"></script>
+                <link rel="stylesheet" href="/catalog/view/javascript/flowplayer/flowplayer.css">
+
+                <!-- player skin -->
+                <link rel="stylesheet" href="/system/flowplayer/skin/all-skins.css">
+
+                <!-- include flowplayer -->
+                <script src="/system/flowplayer/flowplayer.min.js"></script>
+
+                <!-- end - video on page -->
+            ]]></add>
+        </operation>
+    </file>
+</modification>
