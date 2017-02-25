@@ -1,0 +1,241 @@
+/* -----------------   -  modal -  -----------------  */
+.modal {
+  background: rgba(0,0,0,0.4);
+  outline: 0 none;
+  overflow-x: auto;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  z-index: 1000;
+  color: #a8a8a8;
+}
+
+div[class^="modal-content"] {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-box-shadow: 4px 4px 5px rgba(0,0,0,.12);
+  -moz-box-shadow: 4px 4px 5px rgba(0,0,0,.12);
+  box-shadow: 4px 4px 5px rgba(0,0,0,.12);
+  margin: 10vh auto 100px;
+  width: 90%;
+  background-color: #FFF;
+}
+
+.modal-content .close-btn-style-1::before,
+.modal-content .close-btn-style-1::after {
+  background-color: #f34063;
+}
+
+.modal-content .close-btn-style-1 {
+  position: absolute;
+  right: 11px;
+  top: 11px;
+}
+
+.modal-content-login .close-btn-style-1 {
+  right: 25px;
+  top: 25px;
+}
+
+.btn-modal-enter {
+  width: 100px;
+  /*    background-color: #2aa9c5;*/
+  margin-bottom: 0;
+}
+
+.btn-modal-reg {
+  width: 154px;
+  margin-bottom: 0;
+}
+
+.modal-content h2 {
+  font-size: 15px;
+  color: #000;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.modal-content .link-color {
+  font-size: 13px;
+}
+
+.modal-content .inpTxt {
+  border: 1px solid #696969;
+}
+
+.modal-content .inpTxt {
+  border: 1px solid #696969;
+}
+
+.modal-content .inpTxtBl label {
+  color: #404040;
+  font-size: 16px;
+}
+
+.modal-content .checkbox-style {
+  margin: 10px 0;
+}
+
+.modal-content-login {
+  max-width: 330px;
+  padding: 25px 30px;
+}
+
+.modal-content-login {
+  max-width: 330px;
+  padding: 25px 30px;
+}
+
+.modal-content .checkbox-style label::before {
+  border: 1px solid #696969;
+}
+
+.modal-content .filters-btn-apply {
+  display: inline-block;
+  background-color: #2aa9c5;
+  color: #fff;
+  padding: 10px 30px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.modal-content-message {
+  text-align: center;
+  max-width: 340px;
+  padding: 30px;
+  color: #000;
+}
+
+.mess {
+  /* font-size: 15px; */
+  /* padding: 20px 0; */
+}
+
+.mess h3 {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #f34063;
+}
+
+.modal-content.modal-content-sort  .checkbox-style {
+  margin: 0;
+}
+
+.modal-content-message {
+  text-align: center;
+  max-width: 340px;
+  padding: 30px;
+  color: #000;
+}
+/* -----------------   -  btn  close -  -----------------  */
+
+.close-btn {
+  display: block;
+  position: absolute;
+  background: transparent;
+  cursor: pointer;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: "";
+  position: absolute;
+}
+
+.close-btn::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.close-btn::after {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.close-btn-style-1::before,
+.close-btn-style-1::after {
+  background-color: #bbb;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  height: 22px;
+  right: 7px;
+  top: -2px;
+  width: 4px;
+}
+
+.close-btn-style-1:hover::before,
+.close-btn-style-1:hover::after {
+  background-color: #f34063;
+}
+
+.close-btn-style-1 {
+  height: 24px;
+  position: relative;
+  width: 24px;
+  margin: 0 auto;
+  top: 5px;
+}
+
+/* -------------------- */
+
+.mark {
+  color: #f34063;
+}
+
+.a-mark {
+  color: #00A9C8;
+  font-weight: bold;
+}
+
+.btn-style-6 {
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #ff3e65;
+  background-position: left 10px center;
+  padding: 8px 15px;
+  display: inline-block;
+  color: #FFF;
+  vertical-align: middle;
+  margin: 20px 0;
+  height: 38px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.modal p {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: medium;
+}
+
+.modal a {
+    font-size: medium;
+}
