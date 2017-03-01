@@ -29,3 +29,6 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'euro_clothing');
 define('DB_PREFIX', 'oc_');
+
+//Product weight id (oc_attribute.attribute_id / oc_attribute_description = 'Вес изделия в граммах')
+define('PRODUCT_WEIGHT_ID', '4');

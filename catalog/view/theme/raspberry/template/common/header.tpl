@@ -61,8 +61,6 @@
     </script>
     <![endif]-->
     
-    <?php require_once(DIR_SYSTEM . 'helper/flowplayer.php'); ?>
-    
     <?php if ($stores) { ?>
         <script type="text/javascript"><!--
             $(document).ready(function () {

@@ -22,6 +22,7 @@ $_['column_name']            = 'Название товара';
 $_['column_model']           = 'Артикул';
 $_['column_image']           = 'Изображение';
 $_['column_price']           = 'Цена на сайте';
+$_['column_weight']          = 'Вес г.';
 $_['column_quantity']        = 'Количество';
 $_['column_status']          = 'Статус';
 $_['column_action']          = 'Действие';

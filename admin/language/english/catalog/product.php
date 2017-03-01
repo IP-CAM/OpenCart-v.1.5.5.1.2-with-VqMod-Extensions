@@ -22,6 +22,7 @@ $_['column_model']           = 'Model';
 $_['column_image']           = 'Image';
 $_['column_price']           = 'Price';
 $_['column_quantity']        = 'Quantity';
+$_['column_weight']          = 'Weight g.';
 $_['column_status']          = 'Status';
 $_['column_action']          = 'Action';
 $_['column_category']        = 'Category';
