@@ -78,13 +78,13 @@
         <div id="top"></div>
         <ul class="top-menu">
             <li><a href="/">Главная</a></li>
+            <li><a href="index.php?route=information/news">Новости</a></li>
             <li><a href="/about_us">О нас</a></li>
             <li><a href="/delivery_information">Доставка и оплата</a></li>
 <!--            <li><a href="/return_information">Гарантии и возврат</a></li>-->
 <!--            <li><a href="/security_policy">Политика Безопасности</a></li> -->
             <li><a href=/contact-us>Контакты</a></li>
             <li><a href="index.php?route=product/testimonial">Отзывы</a></li>
-            <li><a href="index.php?route=information/news">Новости</a></li>
         </ul>
         <?php if ($logo) { ?>
             <div id="logo">
