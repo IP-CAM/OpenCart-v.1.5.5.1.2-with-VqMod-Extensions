@@ -104,5 +104,5 @@ OpenCart is open source software and you are free to remove the powered by OpenC
 Please donate via PayPal to donate@opencart.com
 //-->
 </div>
-<?= require_once(DIR_TEMPLATE . "raspberry/template/common/modals.tpl") ?>
+<!-- <?= require_once(DIR_TEMPLATE . "raspberry/template/common/modals.tpl") ?> -->
 </body></html>

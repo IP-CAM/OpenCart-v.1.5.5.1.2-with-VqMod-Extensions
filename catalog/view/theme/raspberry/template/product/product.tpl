@@ -1,4 +1,6 @@
-<?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
+<?php echo $header; ?>
+<?php echo $column_left; ?>
+<?php echo $column_right; ?>
     <div id="content"><?php echo $content_top; ?>
         <div class="breadcrumb">
             <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -218,22 +220,23 @@
                         <?php } ?>
                     </div>
                 <?php } ?>
-                <div class="cart">
-                    <div><?= $text_qty ?>
-                        <input type="text" name="quantity" size="2" disabled value="<?php echo $minimum; ?>"/>
+                <?php if ($quantity > 0): ?>
+                    <div class="cart">
+                        <label><?= $text_qty ?>
+                            <input type="text" name="quantity" size="2" disabled value="<?php echo $minimum; ?>"/>
+                        </label>
                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>"/>
-
                         <input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button"/>
                         <span class="links">
-                            <a onclick="addToWishList('<?php echo $product_id; ?>');"><?php echo $button_wishlist; ?></a>
-                            ||
-                            <a onclick="addToCompare('<?php echo $product_id; ?>');"><?php echo $button_compare; ?></a>
-                        </span>
+                        <a onclick="addToWishList('<?php echo $product_id; ?>');"><?php echo $button_wishlist; ?></a>
+                        ||
+                        <a onclick="addToCompare('<?php echo $product_id; ?>');"><?php echo $button_compare; ?></a>
+                    </span>
+                        <?php if ($minimum > 1) { ?>
+                            <div class="minimum"><?php echo $text_minimum; ?></div>
+                        <?php } ?>
                     </div>
-                    <?php if ($minimum > 1) { ?>
-                        <div class="minimum"><?php echo $text_minimum; ?></div>
-                    <?php } ?>
-                </div>
+                <?php endif; ?>
                 <?php if ($review_status) { ?>
                     <div class="review">
                         <div>
